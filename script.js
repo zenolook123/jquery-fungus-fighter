@@ -7,7 +7,7 @@ $(document).ready(onReady);
 
 
 function onReady() {
-
+    
     let  abilityPoints = 100
     let healthPoints =  100
 
@@ -15,8 +15,6 @@ function onReady() {
     $(".attacks").on("click", ".dragon-blade", dragonBladeAttack)
     $(".attacks").on("click", ".star-fire", starFireAttack)
     $(".attacks").on("click", ".arcane-scepter", arcaneAttack)
-  
-
 
     function arcaneAttack(){
         if (abilityPoints >= 12 && healthPoints > 0) {
@@ -30,6 +28,8 @@ function onReady() {
                 healthPoints = 0
                 $(".walk").replaceWith(`<div class="freaky-fungus dead"></div>`)
            }
+        } else {
+            $(".arcane-scepter").replaceWith(`<button class="attack-btn arcane-scepter" disabled></button>`)
         }
 
         
@@ -37,7 +37,8 @@ function onReady() {
         $("#apSpan").text(abilityPoints)
         $("#ap-meter").val(abilityPoints)
         $("#hp-meter").val(healthPoints)
-    }
+    } 
+
      //    **AP Cost:** 12
      //    - **HP Damage:** 14
 
@@ -53,6 +54,8 @@ function onReady() {
                 healthPoints = 0
                 $(".walk").replaceWith(`<div class="freaky-fungus dead"></div>`)
            }
+        } else {
+            $(".entangle").replaceWith(`<button class="attack-btn entangle" disabled></button>`)
         }
 
         
@@ -60,7 +63,7 @@ function onReady() {
         $("#apSpan").text(abilityPoints)
         $("#ap-meter").val(abilityPoints)
         $("#hp-meter").val(healthPoints)
-    }
+    } 
 
 
 
@@ -76,6 +79,8 @@ function onReady() {
                 healthPoints = 0
                 $(".walk").replaceWith(`<div class="freaky-fungus dead"></div>`)
            }
+        } else {
+            $(".dragon-blade").replaceWith(`<button class="attack-btn dragon-blade" disabled></button>`)
         }
 
         
@@ -98,6 +103,8 @@ function onReady() {
                 healthPoints = 0
                 $(".walk").replaceWith(`<div class="freaky-fungus dead"></div>`)
            }
+        } else {
+            $(".star-fire").replaceWith(`<button class="attack-btn star-fire" disabled></button>`)
         }
 
 
@@ -109,29 +116,3 @@ function onReady() {
 
 
     }
-
-
-
-
-  
-
-
-   
- 
-
-    // When you click an attack button:
-    // -  update _state_ variable(s) to make the Freaky Fungus lose hit points (HP), and to reduce your attack points (AP). 
-    // - See [Attacks](#attacks) below, for the AP and HP values of each attack
-    // - State may be held in one our more variables of your choosing
-    // - HP and AP values may not be negative (set to zero, if they would otherwise be negative)
-// - Update the text above the attack buttons (eg, "100 AP")
-// - Update the text above the enemy fungus (eg, "100 HP")
-// - If the Freaky Fungus runs out of HP, the monster is dead and you win!
-//  Replace the `walk` class with a `dead` class on the freaky-fungus element,
-//  to make them fall over and die.
-// - If you run out of AP, the monster wins and humanity is doomed 😢
-//  Replace the `walk` class with a `jump` class on the freaky-fungus element, 
-//  to make them jump for the glory of the fungal race.
-//   - You may no longer attack, if AP is `0`. 
-// Give all of the attack buttons a [`disabled`]
-// (https://www.w3schools.com/tags/att_button_disabled.asp) attribute, so they may no longer be used. 
