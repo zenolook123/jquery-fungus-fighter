@@ -15,6 +15,7 @@ function onReady() {
     $(".attacks").on("click", ".dragon-blade", dragonBladeAttack)
     $(".attacks").on("click", ".star-fire", starFireAttack)
     $(".attacks").on("click", ".arcane-scepter", arcaneAttack)
+    $("body").on("click", checkLow )
 
     function arcaneAttack(){
         if (abilityPoints >= 12 && healthPoints > 0) {
@@ -114,5 +115,27 @@ function onReady() {
         $("#hp-meter").val(healthPoints)
     }
 
+
+
+    function checkLow(){
+        if (healthPoints < 50) {
+            setInterval(incrementHealthPoints, 1000);
+          }
+    
+        if (abilityPoints < 50) {
+            setInterval(incrementAbilityPoints, 1000)
+        }
+    
+        function incrementHealthPoints() {
+            healthPoints++;
+            $("#hpSpan").text(healthPoints);
+            $("#hp-meter").val(healthPoints);
+          }
+          function incrementAbilityPoints() {
+            abilityPoints++;
+            $("#apSpan").text(abilityPoints);
+            $("#ap-meter").val(abilityPoints);
+          }
+        }
 
     }
